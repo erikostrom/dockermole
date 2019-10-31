@@ -32,7 +32,7 @@ services:
       - POSTGRES_DATABASE=guacamole_db
       - POSTGRES_USER=guacamole_user
       - POSTGRES_PASSWORD=your-postgres-root-pass
-      - GUACAMOLE_HOME=/etc/guacamole
+#      - GUACAMOLE_HOME=/etc/guacamole
       - GUACD_HOSTNAME=guacd
       - POSTGRES_DEFAULT_MAX_CONNECTIONS=0
       - POSTGRES_DEFUALT_MAX_GROUP_CONNECTIONS=0
@@ -40,7 +40,7 @@ services:
       - db
       - guacd
     volumes:
-      - "./shared/guacamole/etc/guacamole:/etc/guacamole"
+#      - "./shared/guacamole/etc/guacamole:/etc/guacamole"
       - "/etc/localtime:/etc/localtime:ro"
     restart: always
     logging:
@@ -57,8 +57,8 @@ services:
       - "./shared/nginx/modsec/conf.d:/etc/nginx/modsec/conf.d"
       - "./shared/nginx/nginx.conf:/etc/nginx/nginx.conf"
       - "./shared/nginx/modsec/crs-setup.conf:/usr/local/owasp-modsecurity-crs-3.0.0/crs-setup.conf"
-      - "/var/log/dockermole/nginx/access.log:/var/log/nginx/access.log"
-      - "/var/log/dockermole/nginx/error.log:/var/log/nginx/error.log"
+ #     - "/var/log/dockermole/nginx/access.log:/var/log/nginx/access.log"
+ #     - "/var/log/dockermole/nginx/error.log:/var/log/nginx/error.log"
       - "/etc/localtime:/etc/localtime:ro"
     restart: always
     depends_on:
